@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='plugin',
             name='plugin_type',
-            field=models.CharField(choices=[('rev', 'Revision'), ('repo', 'Repository'), ('other', 'Other'), ('analysis', 'Analysis')], default=None, max_length=5),
+            field=models.CharField(choices=[('rev', 'Revision'), ('repo', 'Repository'), ('other', 'Other'), ('analysis', 'Analysis')], default=None, max_length=20),
             preserve_default=False,
         ),
         migrations.AddField(

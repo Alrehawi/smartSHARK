@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from django.core.urlresolvers import reverse_lazy
-from django.contrib.auth.views import login, logout
+from django.urls import reverse_lazy
+from django.contrib.auth import login, logout
 
 from smartshark.views import analysis, common, collection, visualizations, remote
 

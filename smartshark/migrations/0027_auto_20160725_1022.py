@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='job',
             name='status',
-            field=models.CharField(choices=[('DONE', 'Done'), ('EXIT', 'Exit'), ('WAIT', 'Waiting')], max_length=8),
+            field=models.CharField(choices=[('DONE', 'Done'), ('EXIT', 'Exit'), ('WAIT', 'Waiting')], max_length=30),
         ),
     ]

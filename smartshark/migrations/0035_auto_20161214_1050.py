@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='pluginexecution',
             name='execution_type',
-            field=models.CharField(blank=True, choices=[('all', 'Executed on all revisions'), ('new', 'Executed on new revisions'), ('rev', 'Executed on specified revisions'), ('error', 'Executed on revisions that previously threw an error')], max_length=5, null=True),
+            field=models.CharField(blank=True, choices=[('all', 'Executed on all revisions'), ('new', 'Executed on new revisions'), ('rev', 'Executed on specified revisions'), ('error', 'Executed on revisions that previously threw an error')], max_length=30, null=True),
         ),
         migrations.AddField(
             model_name='pluginexecution',

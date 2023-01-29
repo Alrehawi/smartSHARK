@@ -20,6 +20,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='pluginexecution',
             name='status',
-            field=models.CharField(choices=[('waiting', 'Waiting for Requirements'), ('queue', 'In Queue'), ('running', 'Running'), ('finished', 'Finished'), ('error', 'Error')], max_length=8),
+            field=models.CharField(choices=[('waiting', 'Waiting for Requirements'), ('queue', 'In Queue'), ('running', 'Running'), ('finished', 'Finished'), ('error', 'Error')], max_length=20),
         ),
     ]

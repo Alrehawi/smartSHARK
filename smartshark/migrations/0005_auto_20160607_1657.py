@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=100)),
                 ('required', models.BooleanField()),
                 ('position', models.IntegerField()),
-                ('type', models.CharField(choices=[('install', 'Installation Argument'), ('execute', 'Execution Argument')], max_length=7)),
+                ('type', models.CharField(choices=[('install', 'Installation Argument'), ('execute', 'Execution Argument')], max_length=17)),
             ],
         ),
         migrations.CreateModel(

@@ -87,7 +87,7 @@ class Plugin(models.Model):
     author = models.CharField(max_length=200)
     version = models.CharField(max_length=100)
     description = models.CharField(max_length=400)
-    plugin_type = models.CharField(max_length=5, choices=TYPE_CHOICES)
+    plugin_type = models.CharField(max_length=20, choices=TYPE_CHOICES)
     validate_file = FileValidator(max_size=1024*1024*500, content_types=('application/x-tar', 'application/octet-stream'))
     archive = models.FileField(upload_to="uploads/plugins/", validators=[validate_file])
     requires = models.ManyToManyField("self", blank=True, symmetrical=False)
@@ -285,8 +285,8 @@ class PluginExecution(models.Model):
         ('WAIT', 'Waiting'),
     )
 
-    plugin = models.ForeignKey(Plugin)
-    project = models.ForeignKey(Project)
+    plugin = models.ForeignKey(Plugin,default="general",on_delete=models.CASCADE)
+    project = models.ForeignKey(Project,default="general",on_delete=models.CASCADE)
     repository_url = models.CharField(max_length=500, null=True, blank=True)
     execution_type = models.CharField(max_length=5, choices=EXECUTION_TYPES, null=True, blank=True)
     revisions = models.TextField(null=True, blank=True)
@@ -378,7 +378,7 @@ class Job(models.Model):
         ('WAIT', 'Waiting'),
     )
     job_id = models.IntegerField(blank=True, null=True)
-    plugin_execution = models.ForeignKey(PluginExecution)
+    plugin_execution = models.ForeignKey(PluginExecution,default="general",on_delete=models.CASCADE)
     status = models.CharField(max_length=8, choices=STATUS_CHOICES, default='WAIT')
     revision_hash = models.CharField(max_length=100, blank=True, null=True, default=None)
     requires = models.ManyToManyField("self", blank=True, symmetrical=False)
@@ -433,7 +433,7 @@ class SmartsharkUser(models.Model):
 
 
 class CommitVerification(models.Model):
-    project = models.ForeignKey(Project)
+    project = models.ForeignKey(Project,default="general",on_delete=models.CASCADE)
     vcs_system = models.CharField(max_length=100)
     commit = models.CharField(max_length=250)
 
